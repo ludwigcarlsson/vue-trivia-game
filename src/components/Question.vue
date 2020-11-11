@@ -7,14 +7,14 @@
                 <div class = "optionBody">
                 </div>
                 <div class = "q1Options" v-for="(answer, index) in questions[currentQuestion].answers" :key="answer.index">
-                    <button v-on:click="answerQuestion(answer, questions[currentQuestion].correct_answer)" v-bind:value="index">{{answer}}</button>
+                    <button type="button" class="btnAlt" v-on:click="answerQuestion(answer, questions[currentQuestion].correct_answer)" v-bind:value="index">{{answer}}</button>
                 </div>
             </div>
         </fieldset>
     </div>
 </template>
-<script>
 
+<script>
 export default {
     name: 'Question',
     data() {
@@ -49,17 +49,41 @@ export default {
 </script>
 
 <style>
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #444;
+    margin: 0;
+}
+
 .question-body {
-    width: 70%;
+    width: 60%;
     height: 30%;
     position: absolute;
-    left: 15%;
+    left: 20%;
     color: white;
+    margin-left: auto;
 }
 
 .option-body {
     background-color: orange;
     width: 35px;
+}
+
+.btnAlt  {
+    background-color: orange;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 30px;
+    width: 350px;
+}
+
+.btnAlt:hover {
+    cursor: pointer;
+    background-color: rgb (238, 238, 238);
+    border: 2px #eee solid;
+    padding: 30px;
 }
 
 </style>
