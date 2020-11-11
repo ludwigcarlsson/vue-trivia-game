@@ -1,10 +1,16 @@
 <template>
-<div class = "questionContainer">
-  <div class = "questionBody">
+<div class = "question-container">
+  <fieldset class = "question-body">
   <div class = "q1">
-      <h3>Question 1 of 10</h3>
-      <p>What country is the largest country in South America?</p>
+      <legend><h3>Question 1 of 10</h3></legend>
+      <p>What country is the largest in South America?</p>
+      <div class = "optionBody">
+      </div>
+      <div class = "q1Options">
+          <p></p>
+      </div>
   </div>
+
   <div class = "q2">
       <h3>Question 2 of 10</h3>
       <p>How long is an Olympic swimming pool?</p>
@@ -41,12 +47,10 @@
       <h3>Question 10 of 10</h3>
       <p>Which country does the Peroni beer come from?</p>
   </div>
+  </fieldset>
   </div>
-  <div class = "optionBody"></div>
-</div>
   
 </template>
-
 <script>
 
 export default {
@@ -55,20 +59,21 @@ name: 'Question'
 </script>
 
 <style>
-.questionBody {
-    background-color: cornflowerblue;
-    width: 300px;
-    border: 15px saddlebrown;
-    padding: 50px;
-    margin: 20px;
+.question-body {
+    width: 90%;
+    height: 50%;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 25px;
+    color: white;
 }
 
-.optionBody {
+.option-body {
     background-color: orange;
-    width: 50px;
-
-
-
+    width: 35px;
 }
 
 </style>
