@@ -1,79 +1,60 @@
 <template>
 <div class = "question-container">
   <fieldset class = "question-body">
-  <div class = "q1">
       <legend><h3>Question 1 of 10</h3></legend>
-      <p>What country is the largest in South America?</p>
-      <div class = "optionBody">
-      </div>
-      <div class = "q1Options">
-          <p></p>
-      </div>
+      <h2>What country is the largest in South America?</h2>
+</fieldset>
+<div class = "option-body">
+<button type="button" id="btnAlt1" onclick="">Alternative 1</button>
+<button type="button" id="btnAlt2" onclick="">Alternative 2</button>
+<button type="button" id="btnAlt3" onclick="">Alternative 3</button>
+<button type="button" id="btnAlt4" onclick="">Alternative 4</button>
+</div>
   </div>
-
-  <div class = "q2">
-      <h3>Question 2 of 10</h3>
-      <p>How long is an Olympic swimming pool?</p>
-  </div>
-  <div class = "q3">
-      <h3>Question 3 of 10</h3>
-      <p>In what year was Google launched on the web?</p>
-  </div>
-  <div class = "q4">
-      <h3>Question 4 of 10</h3>
-      <p>Who did the Mona Lisa paint?</p>
-  </div>
-  <div class = "q5">
-      <h3>Question 5 of 10</h3>
-      <p>What is the Turkish word for lamb?</p>
-  </div>
-  <div class = "q6">
-      <h3>Question 6 of 10</h3>
-      <p>Which bird can swim but cannot fly?</p>
-  </div>
-  <div class = "q7">
-      <h3>Question 7 of 10</h3>
-      <p>Who was the first president of the USA?</p>
-  </div>
-  <div class = "q8">
-      <h3>Question 8 of 10</h3>
-      <p>Which planet is nearest the sun?</p>
-  </div>
-  <div class = "q9">
-      <h3>Question 9 of 10</h3>
-      <p>What was Mozart s nationality?</p>
-  </div>
-  <div class = "q10">
-      <h3>Question 10 of 10</h3>
-      <p>Which country does the Peroni beer come from?</p>
-  </div>
-  </fieldset>
-  </div>
-  
 </template>
-<script>
 
+<script>
 export default {
 name: 'Question'
 }
 </script>
 
 <style>
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #444;
+    margin: 0;
+}
+
 .question-body {
-    width: 90%;
-    height: 50%;
+    width: 60%;
+    height: 30%;
     position: absolute;
-    left: 5%;
-    bottom: 5%;
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 25px;
+    left: 20%;
     color: white;
+    margin-left: auto;
 }
 
 .option-body {
     background-color: orange;
     width: 35px;
+}
+
+#btnAlt1, #btnAlt2, #btnAlt3, #btnAlt4  {
+    background-color: orange;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 30px;
+    width: 350px;
+}
+
+#btnAlt1:hover, #btnAlt2:hover, #btnAlt3:hover, #btnAlt4:hover {
+    cursor: pointer;
+    background-color: rgb (238, 238, 238);
+    border: 2px #eee solid;
+    padding: 30px;
 }
 
 </style>
