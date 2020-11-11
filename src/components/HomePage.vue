@@ -1,19 +1,17 @@
 <template>
   <div class="home-page">
       <div id="home-page-title">Vue Trivia Game</div>
-      <PlayButton/>
+      <router-link id="play-now-button" to="/question">Play!</router-link>
       <Footer/>
   </div>
 </template>
 
 <script>
-import PlayButton from './PlayButton.vue'
 import Footer from './Footer.vue'
 
 export default {
     name: 'HomePage',
     components: {
-        PlayButton,
         Footer
     }
 }
@@ -34,7 +32,8 @@ body {
 #home-page-title {
     width: 100%;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-bottom: 50px;
     $random-text: 'Vue Trivia Game';
     $stroke-width: $extra-large*0.04;
     position: relative;
@@ -59,5 +58,28 @@ body {
                  $x + $step * 5 $y + $step * 5 $color2,
                  $x + $step * 6 $y + $step * 6 $color2,
                  $x + $step * 7 $y + $step * 7 $color2,
+}
+#play-now-button {
+    font-size: 42px;
+    margin: 0 calc(50% - 75px);
+    color: white;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #999;
+    transition: ease-in-out .3s;
+    border: 2px #222 solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.3);
+    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.3);
+    
+}
+#play-now-button:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    border: 2px #eee solid;
+    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.6);
+    padding: 12px;
 }
 </style>
