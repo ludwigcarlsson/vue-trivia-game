@@ -13,10 +13,7 @@
 
 <script>
 export default {
-    name: 'Footer',
-    props: {
-
-    }
+    name: 'Footer'
 }
 </script>
 
