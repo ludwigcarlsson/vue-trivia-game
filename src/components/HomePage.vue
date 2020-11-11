@@ -2,16 +2,19 @@
   <div class="home-page">
       <div id="home-page-title">Vue Trivia Game</div>
       <PlayButton/>
+      <Footer/>
   </div>
 </template>
 
 <script>
 import PlayButton from './PlayButton.vue'
+import Footer from './Footer.vue'
 
 export default {
     name: 'HomePage',
     components: {
-        PlayButton
+        PlayButton,
+        Footer
     }
 }
 
