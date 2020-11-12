@@ -26,6 +26,7 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: #444;
     margin: 0;
+    color: white;
 }
 #home-page-title {
     width: 100%;

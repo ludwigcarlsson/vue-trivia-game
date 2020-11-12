@@ -5,7 +5,10 @@
             <div class = "q1" >
                 <p>{{questions[currentQuestion].question}}</p>
                 <div class = "option-body">
-                    <button type="button" class="btn-alt" v-for="(answer, index) in questions[currentQuestion].answers" :key="answer.index" v-on:click="answerQuestion(answer, questions[currentQuestion].correct_answer)" v-bind:value="index">{{answer}}</button>
+                    <button type="button" class="btn-alt" 
+                        v-for="(answer, index) in questions[currentQuestion].answers" :key="answer.index" 
+                        v-on:click="answerQuestion(answer, questions[currentQuestion].correct_answer, index)"
+                        v-bind:value="index">{{answer}}</button>
                 </div>
             </div>
         </fieldset>
@@ -40,36 +43,27 @@ export default {
         }) 
     },
     methods: {
-        answerQuestion(answer, correct) {
+        answerQuestion(answer, correct, index) {
+            console.log(index);
             if (answer === correct) {
-                this.currentScore += 100;
+                this.currentScore += 10;
             }
             if (this.currentQuestion < this.questions.length-1) {
                 this.currentQuestion++;
             } else {
                 this.$router.push('/result')
             }
-            
-            
         }
     }
 }
 </script>
 
 <style>
-body { 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: #444;
-    margin: 0;
-}
-
 .question-body {
     width: 60%;
-    height: 30%;
+    padding: 20px;
     position: absolute;
     left: 20%;
-    color: white;
-    margin-left: auto;
 }
 
 .option-body {
@@ -86,14 +80,17 @@ body {
     border: none;
     cursor: pointer;
     text-align: center;
-    padding: 30px;
+    padding: 20px;
     width: 350px;
 }
-
 .btn-alt:hover {
     cursor: pointer;
     background-color: rgb(238, 238, 238);
     border: 2px #eee solid;
+}
+#currentScore {
+    text-align: center;
+    font-weight: bold;
 }
 
 </style>
