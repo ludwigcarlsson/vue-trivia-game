@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="home-page-title">Vue Trivia Game</div>
+    <router-link to="/" id="home-page-title">Vue Trivia Game</router-link>
     <router-view></router-view>
     <Footer/>
   </div>
@@ -39,6 +39,7 @@ body {
     font-size: $extra-large;
     font-weight: 800;
     text-transform: uppercase;
+    text-decoration: none;
     font-style: italic;
     color: #eee;
     -webkit-text-stroke-width: $stroke-width;

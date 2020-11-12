@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 const HomePage = () => import('../components/HomePage.vue')
 const Question = () => import('../components/Question.vue')
+const Result = () => import('../components/Result.vue')
 
 Vue.use(Router);
 
@@ -19,5 +20,10 @@ export default new Router({
             name: 'Question',
             component: Question,
         },
+        {
+            path: '/result',
+            name: 'Result',
+            component: Result,
+        }
     ]
 })
