@@ -4,10 +4,6 @@
             <legend><h3>Contact</h3></legend>
             Created by <a href="https://github.com/ludwigcarlsson">[Ludwig Carlsson]</a> and <a href="https://github.com/englundjesper">[Jesper Englund]</a>
         </fieldset>
-        <fieldset class="footer-section" id="footer-highscore">
-            <legend><h3>Highscore</h3></legend>
-            Current highscore is held by: Person, 1200p
-        </fieldset>
     </div>
 </template>
 
@@ -24,8 +20,6 @@ export default {
     left: 5%;
     bottom: 5%;
     display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 25px;
     color: white;
 }
 .footer-section {
