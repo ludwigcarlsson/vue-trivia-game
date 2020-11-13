@@ -2,21 +2,30 @@
   <div id="result-container">
         <fieldset class="result-section">
             <legend><h3>Game over</h3></legend>
-            <h1>Your score:</h1>
-            <h2>Your score question by question</h2>
+            <h2 id="current-score">Your score:</h2>
+            <h4>Your score question by question</h4>
+            <table>
+                <tr id="answers"></tr>
+            </table>
+        <div>
+  <form action="/...">
+    <p>Save your score</p>
+    <input type="text" id="name" placeholder="Name">
+    <input type="submit" value="Submit">
+  </form>
+        </div>
         </fieldset>
 
         <fieldset class="highscore-section">
             <legend><h3>High scores</h3></legend>
-            Current highscore is held by: Person, 1200p
+            <h4>Current highscore is held by: Person, 1200p</h4>
         </fieldset>
     </div>
-
 </template>
 
 <script>
-export default {
-
+export default { 
+    name: 'Result',
 }
 </script>
 
@@ -28,23 +37,42 @@ body {
 }
 
 .result-section {
-    width: 60%;
-    height: 50%;
-    position: absolute;
-    left: 20%;
+    width: 50%;
     color: white;
-    margin-left: auto;
+    margin-left: 10%;
+    float: left;
 }
 
-/*här behöver vi fixa så att det finns ett avstånd mellan result-section och highscore-section*/
-
-.highscore-section { 
-    width: 60%;
-    height: 30%; 
-    position: absolute;
-    left: 20%;
+.highscore-section {
+    width: 20%;
     color: white;
-    margin-left: auto;
+    margin-left: 10%;
+    float: left;
+}
+
+input[type=text], select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 4px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
 
 </style>
