@@ -7,12 +7,12 @@
                 <div class = "option-body">
                     <button type="button" class="btn-alt" 
                         v-for="(answer, index) in questions[currentQuestion].answers" :key="answer.index" 
-                        v-on:click="answerQuestion(answer, questions[currentQuestion].correct_answer, index)"
+                        v-on:click="answerQuestion(answer, questions[currentQuestion].correct_answer, questions[currentQuestion].question)"
                         v-bind:value="index">{{answer}}</button>
                 </div>
             </div>
         </fieldset>
-        <div id="currentScore">Current score: {{currentScore}}</div>
+        <div id="currentScore">Current score: {{this.$store.getters.getCurrentScore}}</div>
     </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
             questions: [],
             answers: [],
             currentQuestion: 0,
-            currentScore: 0,
+            payload: [],
         }
     },
     created() {
@@ -43,15 +43,21 @@ export default {
         }) 
     },
     methods: {
-        answerQuestion(answer, correct, index) {
-            console.log(index);
+        answerQuestion(answer, correct, question) {
+            this.payload.push({
+                    answer: answer,
+                    correct: correct,
+                    question: question
+                })
+            this.$store.dispatch('addAnswer', this.payload)
+            this.payload = []
             if (answer === correct) {
-                this.currentScore += 10;
+                this.$store.dispatch('addScore')
             }
             if (this.currentQuestion < this.questions.length-1) {
                 this.currentQuestion++;
             } else {
-                this.$router.push('/result')
+                this.$router.push(`/result`)
             }
         }
     }
@@ -65,7 +71,6 @@ export default {
     position: absolute;
     left: 20%;
 }
-
 .option-body {
     display: grid;
     grid-template: auto auto / auto auto;
@@ -73,7 +78,6 @@ export default {
     row-gap: 10px;
     column-gap: 10px;
 }
-
 .btn-alt  {
     background-color: orange;
     border-radius: 4px;

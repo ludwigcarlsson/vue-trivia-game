@@ -26,8 +26,7 @@ export default {
     border: 2px #222 solid;
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.3);
-    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.3);
-    
+    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.3);    
 }
 #play-now-button:hover {
     cursor: pointer;
