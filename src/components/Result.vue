@@ -8,11 +8,9 @@
                 <tr id="answers"></tr>
             </table>
         <div>
-          <form action="/...">
             <p>Save your score</p>
             <input type="text" id="name" placeholder="Name">
             <input type="submit" value="Submit">
-          </form>
         </div>
         </fieldset>
 
@@ -124,6 +122,5 @@ table {
         cursor: pointer;
     }
 }
-
 
 </style>
