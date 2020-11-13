@@ -16,11 +16,8 @@
         </div>
         </fieldset>
 
-        <!-- <div class="tooltip">
-            {{question}}
-            Correct answer: {{correct}}
-            Provided answer: {{answer}}
-        </div> -->
+        <div id="tooltip">
+        </div>
 
         <fieldset class="highscore-section">
             <legend><h3>High scores</h3></legend>
@@ -33,6 +30,21 @@
 export default {
     name: 'Result',
     mounted() {
+        const tooltip = document.getElementById("tooltip");
+        function showTooltip(answer) {
+            tooltip.style.display = "block";
+            let questionText = document.createElement("p");
+            questionText.innerHTML = answer.question;
+            let answerText = document.createElement("p");
+            answerText.innerHTML = `Provided answer: ${answer.answer}`;
+            let correctText = document.createElement("p");
+            correctText.innerHTML = `Correct answer: ${answer.correct}`;
+            tooltip.append(questionText, answerText, correctText);
+        }
+        function hideTooltip() {
+            tooltip.style.display = "none";
+            tooltip.innerHTML = '';
+        }
         const answers = document.getElementById("answers");
         this.$store.getters.getAnswers.forEach(answer => { // loop through all answers
             let answerBox = document.createElement("td") // create cell for each answer and append styling depending on if correct or not
@@ -43,6 +55,11 @@ export default {
                 answerBox.innerHTML = "x"
                 answerBox.style.backgroundColor = "red"   
             }
+            answerBox.addEventListener("mouseover", function () {
+                showTooltip(answer)
+            })
+            answerBox.addEventListener("mouseout", hideTooltip)
+           
             answers.appendChild(answerBox)
         });
     }
@@ -92,10 +109,22 @@ input[type=submit]:hover {
 table {
     margin: 0 auto;
 }
+#tooltip {
+    display: none;
+    position: absolute;
+    border: 2px solid white;
+    background-color: #333;
+    width: 33.3%;
+    z-index: 1;
+    left: 33.3%;
+    bottom: 5%;
+    padding: 15px;
+}
 #answers {
 
     td {
         padding:5px;
+        cursor: pointer;
     }
 }
 
