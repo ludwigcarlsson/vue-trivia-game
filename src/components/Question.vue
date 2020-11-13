@@ -28,6 +28,7 @@ export default {
         }
     },
     created() {
+        this.$store.dispatch('resetData')
         fetch("https://opentdb.com/api.php?amount=10&category=12&difficulty=easy")
         .then(response=>response.json())
         .then(data=> {

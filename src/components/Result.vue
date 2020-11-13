@@ -29,6 +29,8 @@ export default {
     name: 'Result',
     mounted() {
         const tooltip = document.getElementById("tooltip");
+        const answers = document.getElementById("answers");
+        answers.innerHTML = ''
         function showTooltip(answer) { // show tooltip on hover and creates p-tags containing answer-info
             tooltip.style.display = "block";
             tooltip.style.borderColor = answer.answer === answer.correct ? "green" : "red";
@@ -44,7 +46,7 @@ export default {
             tooltip.style.display = "none";
             tooltip.innerHTML = '';
         }
-        const answers = document.getElementById("answers");
+        
         this.$store.getters.getAnswers.forEach(answer => { // loop through all answers
             let answerBox = document.createElement("td") // create cell for each answer and append styling depending on if correct or not
             if(answer.answer === answer.correct) {

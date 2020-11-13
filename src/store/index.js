@@ -18,7 +18,12 @@ export default new Vuex.Store({
                 correct: payload[0].correct,
                 question: payload[0].question
             }); // adds payload information to the state-object: answers
+        },
+        resetData (state) {
+            state.currentScore = 0
+            state.answers = []
         }
+
 
     },
     actions: {
@@ -27,6 +32,9 @@ export default new Vuex.Store({
         },
         addAnswer ({commit}, payload) { // this is called from Question-component, calls mutation giveAns
             commit('giveAns', payload) 
+        },
+        resetData ({commit}) {
+            commit('resetData')
         }
     },
     getters: {
