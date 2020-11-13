@@ -6,6 +6,8 @@ Vue trivia application, a quiz-app that provides 10 questions and gives 10 point
 npm install
 ```
 
+
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -14,11 +16,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration
