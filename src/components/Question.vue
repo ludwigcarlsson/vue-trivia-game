@@ -32,31 +32,31 @@ export default {
         .then(response=>response.json())
         .then(data=> {
             this.questions = data.results;
-            for (let i = 0; i < this.questions.length; i++) {
-                for (let j = 0; j < this.questions[i].incorrect_answers.length; j++) {
-                    this.answers.push(this.questions[i].incorrect_answers[j]);
+            for (let i = 0; i < this.questions.length; i++) { // for each question
+                for (let j = 0; j < this.questions[i].incorrect_answers.length; j++) { // for each incorrect answer
+                    this.answers.push(this.questions[i].incorrect_answers[j]); // add to all answers-array
                 }
-                this.answers.push(this.questions[i].correct_answer);
-                this.$set(this.questions[i], "answers", this.answers)
-                this.answers = []
+                this.answers.push(this.questions[i].correct_answer); // add correct answer to answers-array
+                this.$set(this.questions[i], "answers", this.answers); // add answers-array to each question
+                this.answers = []; // reset array after adding it
             }
         }) 
     },
     methods: {
         answerQuestion(answer, correct, question) {
             this.payload.push({
-                    answer: answer,
-                    correct: correct,
-                    question: question
-                })
+                answer: answer,
+                correct: correct,
+                question: question
+            }) // create a payload for dispatching data to store
             this.$store.dispatch('addAnswer', this.payload)
             this.payload = []
             if (answer === correct) {
-                this.$store.dispatch('addScore')
+                this.$store.dispatch('addScore') // call store-action
             }
-            if (this.currentQuestion < this.questions.length-1) {
+            if (this.currentQuestion < this.questions.length-1) { // if currentQuestion is equal to last question
                 this.currentQuestion++;
-            } else {
+            } else { // redirect to result-page when there are no more questions
                 this.$router.push(`/result`)
             }
         }

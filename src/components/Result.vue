@@ -27,9 +27,8 @@ export default {
     name: 'Result',
     mounted() {
         const answers = document.getElementById("answers");
-        this.$store.getters.getAnswers.forEach(answer => {
-            let answerBox = document.createElement("td")
-            console.log(answer.question);
+        this.$store.getters.getAnswers.forEach(answer => { // loop through all answers
+            let answerBox = document.createElement("td") // create cell for each answer and append styling depending on if correct or not
             if(answer.answer === answer.correct) {
                 answerBox.innerHTML = "v"
                 answerBox.style.backgroundColor = "green"

@@ -3,11 +3,11 @@ import Router from 'vue-router'
 
 const HomePage = () => import('../components/HomePage.vue')
 const Question = () => import('../components/Question.vue')
-const Result = () => import('../components/Result.vue')
+const Result = () => import('../components/Result.vue') // only imports when needed
 
 Vue.use(Router);
 
-export default new Router({
+export default new Router({ // create routes for components with own page
     mode: 'history',
     routes: [
         {
