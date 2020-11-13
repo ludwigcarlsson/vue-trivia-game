@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #footer-container {
     width: 90%;
     position: absolute;
@@ -31,9 +31,10 @@ export default {
 .footer-section {
     border: 2px solid white;
     padding: 0 10px 10px 10px;
-}
-#footer-contact a {
-    text-decoration: none;
-    color: #bbb;
+    
+    a {
+        text-decoration: none;
+        color: #bbb;
+    }
 }
 </style>

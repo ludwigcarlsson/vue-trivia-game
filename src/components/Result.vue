@@ -2,7 +2,7 @@
   <div id="result-container">
         <fieldset class="result-section">
             <legend><h3>Game over</h3></legend>
-            <h1>Your score:</h1>
+            <h1 id="current-score">Your score: {{pts}}</h1>
             <h2>Your score question by question</h2>
         </fieldset>
 
@@ -11,25 +11,22 @@
             Current highscore is held by: Person, 1200p
         </fieldset>
     </div>
-
 </template>
 
 <script>
 export default {
-
+    name: 'Result',
+    props: ['pts'],
+    mounted() {
+        console.log(this.pts);
+    }
 }
 </script>
 
 <style>
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: #444;
-    margin: 0;
-}
-
 .result-section {
     width: 60%;
-    height: 50%;
+    height: 30%;
     position: absolute;
     left: 20%;
     color: white;
@@ -43,6 +40,7 @@ body {
     height: 30%; 
     position: absolute;
     left: 20%;
+    top: 50%;
     color: white;
     margin-left: auto;
 }

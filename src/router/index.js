@@ -21,9 +21,10 @@ export default new Router({
             component: Question,
         },
         {
-            path: '/result',
+            path: '/result/:pts',
             name: 'Result',
             component: Result,
+            props: true,
         }
     ]
 })

@@ -43,15 +43,14 @@ export default {
         }) 
     },
     methods: {
-        answerQuestion(answer, correct, index) {
-            console.log(index);
+        answerQuestion(answer, correct) {
             if (answer === correct) {
                 this.currentScore += 10;
             }
             if (this.currentQuestion < this.questions.length-1) {
                 this.currentQuestion++;
             } else {
-                this.$router.push('/result')
+                this.$router.push(`/result/${this.currentScore}`)
             }
         }
     }
@@ -65,7 +64,6 @@ export default {
     position: absolute;
     left: 20%;
 }
-
 .option-body {
     display: grid;
     grid-template: auto auto / auto auto;
@@ -73,7 +71,6 @@ export default {
     row-gap: 10px;
     column-gap: 10px;
 }
-
 .btn-alt  {
     background-color: orange;
     border-radius: 4px;
