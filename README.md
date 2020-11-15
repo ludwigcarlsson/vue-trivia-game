@@ -2,11 +2,10 @@
 Vue trivia application, a quiz-app that provides 10 questions and gives 10 points for each correct answer. The questions and answers are fetched through https://opentdb.com/api.php
 
 ## Project setup
+You need Node.js for this project, make sure you are standing in the right directory when trying to run the application.
 ```
 npm install
 ```
-
-
 
 ### Compiles and hot-reloads for development
 ```
