@@ -2,15 +2,15 @@
   <div id="result-container">
         <fieldset class="result-section">
             <legend><h3>Game over</h3></legend>
-            <h2 id="current-score">Your score: {{this.$store.getters.getCurrentScore}}</h2>
+            <h2 id="current-score">Your score: {{currentScore}}</h2>
             <h4>Your score question by question</h4>
             <table>
                 <tr id="answers"></tr>
             </table>
         <div>
             <p>Save your score</p>
-            <input type="text" id="name" placeholder="Name">
-            <input type="submit" value="Submit">
+            <input type="text" id="name" placeholder="Name" v-model="name">
+            <input type="submit" value="Submit" v-on:click="submitScore(name, currentScore)">
         </div>
         </fieldset>
 
@@ -19,7 +19,9 @@
 
         <fieldset class="highscore-section">
             <legend><h3>High scores</h3></legend>
-            <h4>Current highscore is held by: Person, 1200p</h4>
+            <h4 v-for="score in this.$store.getters.getScores" :key="score.name">
+                {{score.name}}, {{score.score}}
+            </h4>
         </fieldset>
     </div>
 </template>
@@ -27,6 +29,13 @@
 <script>
 export default {
     name: 'Result',
+    data() {
+        return {
+            currentScore: this.$store.getters.getCurrentScore,
+            name: undefined,
+            payload: []
+        }
+    },
     mounted() {
         const tooltip = document.getElementById("tooltip");
         const answers = document.getElementById("answers");
@@ -63,6 +72,16 @@ export default {
            
             answers.appendChild(answerBox)
         });
+    },
+    methods: {
+        submitScore(name, score) { // adds name and score to object which is then passed to the store, object emptied at end
+            this.payload.push({
+                name: name,
+                score: score
+            });
+            this.$store.dispatch('submitScore', this.payload)
+            this.payload = []
+        }
     }
 }
 </script>

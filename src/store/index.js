@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         answers: [],
+        submittedScores: [],
         currentScore: 0 // define what state should contain
     },
     mutations: {
@@ -19,12 +20,16 @@ export default new Vuex.Store({
                 question: payload[0].question
             }); // adds payload information to the state-object: answers
         },
-        resetData (state) {
+        submitScore (state, payload) {
+            state.submittedScores.push({
+                name: payload[0].name,
+                score: payload[0].score
+            }); // adds payload information to the state-object: submittedScores
+        },
+        resetData (state) { 
             state.currentScore = 0
             state.answers = []
         }
-
-
     },
     actions: {
         addScore ({ commit }) { // this is called from Question-component, calls mutation increment
@@ -32,6 +37,9 @@ export default new Vuex.Store({
         },
         addAnswer ({commit}, payload) { // this is called from Question-component, calls mutation giveAns
             commit('giveAns', payload) 
+        },
+        submitScore({commit}, payload) { // this is called from Result-component, calls submitScore
+            commit('submitScore', payload)
         },
         resetData ({commit}) {
             commit('resetData')
@@ -43,6 +51,9 @@ export default new Vuex.Store({
         },
         getAnswers(state) { // returns the state-object answers
             return state.answers
+        },
+        getScores(state) {
+            return state.submittedScores
         }
     }
 })
